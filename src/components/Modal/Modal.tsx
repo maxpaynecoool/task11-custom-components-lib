@@ -11,8 +11,21 @@ interface ModalProps {
 }
 
 const Modal = ({ children, isOpen, onClose, title, text }: ModalProps) => {
-	const [modalOpen, setModalOpen] = useState(isOpen);
+	const [isModalOpen, setModalOpen] = useState(isOpen);
 	const modalRef = useRef<HTMLDialogElement | null>(null);
+	const divRef = useRef<HTMLDivElement | null>(null);
+
+	useEffect(() => {
+		const handleClickOutside = (event: MouseEvent) => {
+			if (divRef.current && !divRef.current.contains(event.target as Node)) {
+				setModalOpen(false);
+			}
+		};
+		document.addEventListener('click', handleClickOutside);
+		return () => {
+			document.removeEventListener('click', handleClickOutside);
+		};
+	}, []);
 
 	useEffect(() => {
 		setModalOpen(isOpen);
@@ -21,7 +34,7 @@ const Modal = ({ children, isOpen, onClose, title, text }: ModalProps) => {
 	useEffect(() => {
 		const modalElement = modalRef.current;
 		if (modalElement) {
-			if (modalOpen) {
+			if (isModalOpen) {
 				if (typeof modalElement.showModal === 'function') {
 					modalElement.showModal();
 				}
@@ -31,7 +44,7 @@ const Modal = ({ children, isOpen, onClose, title, text }: ModalProps) => {
 				}
 			}
 		}
-	}, [modalOpen]);
+	}, [isModalOpen]);
 
 	const handleCloseModal = () => {
 		if (onClose) {
@@ -45,8 +58,12 @@ const Modal = ({ children, isOpen, onClose, title, text }: ModalProps) => {
 			handleCloseModal();
 		}
 	};
+
 	return (
-		<div>
+		<div
+			ref={divRef}
+			onClick={handleCloseModal}
+		>
 			{createPortal(
 				<dialog
 					ref={modalRef}
