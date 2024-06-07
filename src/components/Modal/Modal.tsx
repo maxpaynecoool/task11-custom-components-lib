@@ -13,19 +13,6 @@ interface ModalProps {
 const Modal = ({ children, isOpen, onClose, title, text }: ModalProps) => {
 	const [modalOpen, setModalOpen] = useState(isOpen);
 	const modalRef = useRef<HTMLDialogElement | null>(null);
-	const divRef = useRef<HTMLDivElement | null>(null);
-
-	useEffect(() => {
-		const handleClickOutside = (event: MouseEvent) => {
-			if (divRef.current && !divRef.current.contains(event.target as Node)) {
-				setModalOpen(false);
-			}
-		};
-		document.addEventListener('mousedown', handleClickOutside);
-		return () => {
-			document.removeEventListener('mousedown', handleClickOutside);
-		};
-	}, []);
 
 	useEffect(() => {
 		setModalOpen(isOpen);
@@ -59,7 +46,7 @@ const Modal = ({ children, isOpen, onClose, title, text }: ModalProps) => {
 		}
 	};
 	return (
-		<div ref={divRef}>
+		<div>
 			{createPortal(
 				<dialog
 					ref={modalRef}
