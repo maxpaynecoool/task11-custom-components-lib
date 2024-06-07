@@ -4,9 +4,9 @@ This is the implementation of a custom components library similar to mui compone
 ## How to run the app:
 1. Install:
 ```
-npm i task11-custom-components-lib
+npm i task11-custom-components-lib-ui
 ```
-https://www.npmjs.com/package/
+https://www.npmjs.com/package/task11-custom-components-lib-ui
 
 2. Import Components into project with necessary props.
 

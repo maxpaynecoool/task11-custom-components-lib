@@ -1,5 +1,5 @@
 {
-  "name": "task11-custom-components-lib",
+  "name": "task11-custom-components-lib-ui",
   "version": "1.0.19",
   "description": "",
   "main": "./dist/index.js",
