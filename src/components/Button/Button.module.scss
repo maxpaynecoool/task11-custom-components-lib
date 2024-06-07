@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700&display=swap');
+
+.button {
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  border: 0;
+  border-radius: 10px;
+  padding: 10px 20px;
+}
+
+.small {
+  font-size: small;
+}
+
+.medium {
+  font-size: medium;
+}
+
+.large {
+  font-size: large;
+}
+
+.text {
+  background-color: transparent;
+  color: #1975d1;
+
+  &:hover {
+    background-color: rgba(25, 117, 209, 0.21);
+  }
+
+  &:active {
+    background-color: #5988bc;
+    color: white;
+  }
+
+  &:disabled {
+    color: rgba(0, 0, 0, 0.26);
+    cursor: default;
+  }
+}
+
+.outlined {
+  border: 1px solid #1975d1;
+  background: none;
+  color: #1975d1;
+
+  &:hover {
+    background-color: rgba(25, 118, 210, 0.22);
+    border: 1px solid #1976d2;
+  }
+
+  &:active {
+    background-color: #97a7e2;
+    color: white;
+  }
+
+  &:disabled {
+    color: gray;
+    border-color: lightgrey;
+    cursor: default;
+  }
+}
+
+.contained {
+  background-color: #1975d1;
+  color: white;
+  border: 0;
+
+  &:hover {
+    background-color: #1565c0;
+  }
+
+  &:active {
+    background-color: #5890ca;
+    color: white;
+  }
+
+  &:disabled {
+    background-color: lightgrey;
+    color: gray;
+    border-color: lightgrey;
+    cursor: default;
+  }
+}
+

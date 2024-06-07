@@ -1,0 +1,127 @@
+.containerInput {
+    background-color: white;
+    border-radius: 4px;
+    position: relative;
+    height: 50px;
+    display: flex;
+    font-family: Arial, sans-serif;
+}
+
+.input {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    background: transparent;
+    border: 1px solid transparent;
+    border-bottom-color: #0000006b;
+    color: rgba(0, 0, 0, 0.87);
+    padding: 15px 10px 5px;
+    font-size: 1rem;
+
+    &.error ~ .label {
+        color: #c42d2d;
+        transition: 0.4s;
+    }
+
+    &:focus ~ label {
+        color: #5a76da;
+        transition: 0.4s;
+    }
+
+    &.error:focus ~ label {
+        color: #c42d2d;
+    }
+
+    &:focus,
+    &:hover {
+        outline: none;
+        border-bottom-width: 2px;
+        border-bottom-color: #5a76da;
+    }
+
+    &.error,
+    &.error:focus {
+        border-bottom-color: #c42d2d;
+    }
+
+    &.outlined {
+        border: 1px solid rgba(0, 0, 0, 0.5);
+        border-radius: 4px;
+
+        &:focus,
+        &:hover {
+            border: 1px solid #5a76da;
+        }
+
+        &.error,
+        &.error:focus,
+        &.error:hover {
+            border-color: #c42d2d;
+        }
+
+        &.select {
+            border-color: #5a76da;
+            transition: 0.4s;
+
+            &.error {
+                border-color: #c42d2d;
+            }
+
+            &.error ~ label {
+                color: #c42d2d;
+                transition: 0.4s;
+            }
+        }
+
+        &.select ~ label {
+            color: #5a76da;
+            transition: 0.4s;
+        }
+    }
+
+    &.filled {
+        border-radius: 4px;
+        background-color: #f5f5f5;
+
+        &.error,
+        &.error:focus {
+            border-bottom-color: #c42d2d;
+        }
+
+        &.error:not(:placeholder-shown) ~ label,
+        &.error:focus ~ label {
+            color: #c42d2d;
+        }
+    }
+
+    &.filled:not(:placeholder-shown) ~ label,
+    &.filled:focus ~ label {
+        top: 10px;
+        left: 10px;
+        font-size: 0.75rem;
+        background-color: transparent;
+    }
+}
+
+.label {
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    transform: translateY(-50%);
+    color: rgba(0, 0, 0, 0.5);
+    padding: 1px;
+    transition: 0.4s;
+}
+
+.input:not(:placeholder-shown) ~ label,
+.input:focus ~ label {
+    top: 0px;
+    left: 10px;
+    font-size: 0.75rem;
+    background-color: white;
+}
+
+.outlined.error ~ label,
+.outlined.error:focus ~ label {
+    color: #c42d2d;
+}

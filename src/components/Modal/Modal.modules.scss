@@ -1,0 +1,29 @@
+.modal {
+    max-width: 20rem;
+    padding: 2rem;
+    border-radius: 1rem;
+    position: fixed;
+    border: 1px solid #ccc;
+
+    &::backdrop {
+        background: rgba(0, 0, 0, 0.5)
+    }
+}
+
+.closeButton {
+    cursor: pointer;
+    background-color: transparent;
+    border: 1px solid white;
+    position: absolute;
+    right: 5px;
+    top: 10px;
+
+    .cross {
+        color: gray;
+    }
+}
+
+.title {
+    padding: 0;
+    margin: 0;
+}
